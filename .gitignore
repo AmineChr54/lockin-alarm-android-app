@@ -2,6 +2,7 @@
 *.aab
 *.jks
 *.keystore
+keystore.properties
 .env
 **/.gradle/
 **/build/

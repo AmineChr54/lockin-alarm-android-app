@@ -1,8 +1,14 @@
+import java.util.Properties
+
 plugins {
     // AGP 9 brings its own Kotlin support, so kotlin-android is not applied here.
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
 }
+
+// The published APKs' key lives outside the repo. Without keystore.properties a release is signed with your debug key.
+val keystore = providers.fileContents(rootProject.layout.projectDirectory.file("keystore.properties")).asText.orNull
+    ?.let { text -> Properties().apply { load(text.reader()) } }
 
 android {
     namespace = "app.lockinalarm"
@@ -16,13 +22,21 @@ android {
         versionName = "1.0"
     }
 
+    signingConfigs {
+        if (keystore != null) create("release") {
+            storeFile = file(keystore.getProperty("storeFile"))
+            storePassword = keystore.getProperty("storePassword")
+            keyAlias = keystore.getProperty("keyAlias")
+            keyPassword = keystore.getProperty("storePassword")
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
-            // signed with your own debug key, so a release build installs without any setup
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName(if (keystore != null) "release" else "debug")
         }
     }
 

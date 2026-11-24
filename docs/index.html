@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a class="skip" href="#build">Skip to the build instructions</a>
+<a class="skip" href="#build">Skip to the download</a>
 
 <canvas id="gl" aria-hidden="true"></canvas>
 <div class="grain" aria-hidden="true"></div>
@@ -40,7 +40,7 @@
     <div class="copy">
       <h1><span class="ln"><i>It stops</i></span><span class="ln"><i>when <em>you get up.</em></i></span></h1>
       <p class="lead">An Android alarm that rings until you scan an NFC sticker. Put the sticker in the bathroom.</p>
-      <p class="cta"><a class="btn" href="#off">Try to turn it <em>off</em></a><a class="link" href="#build">Build it yourself</a></p>
+      <p class="cta"><a class="btn" href="#off">Try to turn it <em>off</em></a><a class="link" href="https://github.com/AmineChr54/lockin-alarm-android-app/releases/latest">Download the APK</a></p>
     </div>
   </section>
 
@@ -113,27 +113,27 @@
           <ul class="plain">
             <li>A phone with Android 13 or newer and NFC</li>
             <li>An NFC sticker, for example an NTAG213 or NTAG215</li>
-            <li>JDK 17 or newer and the Android SDK, to build it</li>
+            <li>Nothing else. No account, no computer</li>
           </ul>
         </div>
         <div>
-          <h3>Build and install</h3>
+          <h3>Or build it</h3>
           <div class="code"><button type="button" id="copy">Copy</button><pre><code id="cmd">git clone https://github.com/AmineChr54/lockin-alarm-android-app
 cd lockin-alarm-android-app
 ./gradlew assembleRelease
 adb install -r app/build/outputs/apk/release/app-release.apk</code></pre></div>
-          <p class="small">Then open it, follow “Before it works”, pair your tag and run the silent test ring.</p>
+          <p class="small">Either way: open it, follow “Before it works”, pair your tag and run the silent test ring before you rely on it.</p>
         </div>
         <div>
           <h3>What it can't stop</h3>
           <p>You. Force-stopping the app, uninstalling it or switching the phone off still works. Android doesn't let an app prevent that, and it shouldn't.</p>
         </div>
       </div>
-      <p class="cta"><a class="btn" href="https://github.com/AmineChr54/lockin-alarm-android-app">Read the <em>code</em></a></p>
+      <p class="cta"><a class="btn" href="https://github.com/AmineChr54/lockin-alarm-android-app/releases/latest">Download the <em>APK</em></a><a class="link" href="https://github.com/AmineChr54/lockin-alarm-android-app">Read the code</a></p>
     </div>
     <footer>
       <p class="bye" id="bye">Go get the <em>day.</em></p>
-      <p class="small">Type: <a href="fonts/instrument-serif-OFL.txt">Instrument Serif</a> and <a href="fonts/inter-OFL.txt">Inter</a> (OFL). 3D: <a href="vendor/three-LICENSE.txt">three.js</a> (MIT). No cookies, no tracking, nothing loaded from anywhere else.</p>
+      <p class="small">Type: <a href="fonts/instrument-serif-OFL.txt">Instrument Serif</a> and <a href="fonts/inter-OFL.txt">Inter</a> (OFL). 3D: <a href="vendor/three-LICENSE.txt">three.js</a> (MIT). The app and this page are MIT-licensed. No cookies, no tracking, nothing loaded from anywhere else.</p>
     </footer>
   </section>
 </main>

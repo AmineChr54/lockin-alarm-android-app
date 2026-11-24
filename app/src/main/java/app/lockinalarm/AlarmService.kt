@@ -1,5 +1,6 @@
 package app.lockinalarm
 
+import android.app.Notification
 import android.app.Service
 import android.content.Context
 import android.content.Intent
@@ -9,6 +10,7 @@ import android.media.AudioManager
 import android.media.MediaPlayer
 import android.media.RingtoneManager
 import android.net.Uri
+import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
@@ -76,12 +78,21 @@ class AlarmService : Service() {
         val s = Store.session(this)
         val a = s.alarmId?.let { Store.alarm(this, it) }
         // startForegroundService demands this even if we stop right away
-        startForeground(Notify.ID_RING, Notify.ringing(this, a), ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK)
+        foreground(Notify.ringing(this, a))
         if (s.phase != Phase.RINGING || a == null) { stopSelf(); return START_NOT_STICKY }
         if (playing != key(s)) { release(); start(s, a) }
         // the full-screen intent usually opens it; this covers the phone being unlocked and in use
         try { startActivity(Intent(this, AlarmActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) } catch (e: Exception) { Log.w(TAG, "activity start blocked: $e") }
         return START_STICKY
+    }
+
+    private fun foreground(n: Notification) = try {
+        startForeground(Notify.ID_RING, n, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK)
+    } catch (e: IllegalStateException) {
+        // Android 15+ refuses media playback for some seconds after a boot; exact-alarm apps have their own type
+        if (Build.VERSION.SDK_INT < 34) throw e
+        Log.w(TAG, "media playback refused, using system exempted: $e")
+        startForeground(Notify.ID_RING, n, ServiceInfo.FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED)
     }
 
     private fun key(s: Session) = "${s.alarmId}:${s.ringSince}:${s.silent}"
