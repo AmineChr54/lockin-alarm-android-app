@@ -1,0 +1,53 @@
+package app.lockinalarm.ui
+
+@Suppress("LargeClass")
+internal object MascotArt {
+    val keyIdle = listOf(
+        P("M78,228 A22,3.5 0 1 0 122,228 A22,3.5 0 1 0 78,228 Z", fill = 0xFF17181B, stroke = null, alpha = 0.22f),
+        P("M84,218 L78,224 M116,218 L122,224", fill = null, stroke = 0xFF17181B, w = 2.5f, alpha = 0.45f),
+        P("M54,96 C40,104 36,118 40,130", fill = null, stroke = 0xFF17181B, w = 3.5f),
+        P("M35.5,136 A6.5,7.5 0 1 0 48.5,136 A6.5,7.5 0 1 0 35.5,136 Z", fill = null, stroke = 0xFF17181B, w = 3f),
+        P("M146,80 C160,70 166,56 164,43", fill = null, stroke = 0xFF17181B, w = 3.5f),
+        P("M157,36 A7,8 0 1 0 171,36 A7,8 0 1 0 157,36 Z", fill = null, stroke = 0xFF17181B, w = 3f),
+        P("M159,29 L157,21 M164,28 L164,19 M169,29 L172,21", fill = null, stroke = 0xFF17181B, w = 3f),
+        P("M92,124 L108,124 L108,204 C108,209 104,212 100,212 C96,212 92,209 92,204 Z", fill = 0xFFF2A93B, stroke = null),
+        P("M106,164 L124,164 C126,164 126,166 126,168 L126,176 L116,176 L116,184 L106,184 Z", fill = 0xFFF2A93B, stroke = null),
+        P("M106,190 L120,190 L120,200 L106,200 Z", fill = 0xFFF2A93B, stroke = null),
+        P("M100,138 L100,202", fill = null, stroke = 0xFFD88E25, w = 3f),
+        P("M100,30 C130,30 152,52 151,82 C150,112 128,133 100,132 C70,131 49,110 50,81 C51,52 72,30 100,30 Z M109,50 A9,9 0 1 0 91,50 A9,9 0 1 0 109,50 Z", fill = 0xFFF2A93B, stroke = null, evenOdd = true),
+        P("M91,50 A9,9 0 1 0 109,50 A9,9 0 1 0 91,50 Z", fill = null, stroke = 0xFF17181B, w = 2.5f),
+        P("M140,64 C150,86 146,110 126,124 C138,106 142,86 140,64 Z", fill = 0xFFD88E25, stroke = null),
+        P("M66,96 C62,84 64,72 70,62", fill = null, stroke = 0xFFFFFFFF, w = 5f, alpha = 0.6f),
+        P("M70,102 A6,6 0 1 0 82,102 A6,6 0 1 0 70,102 Z", fill = 0xFFF26B4F, stroke = null, alpha = 0.4f),
+        P("M118,102 A6,6 0 1 0 130,102 A6,6 0 1 0 118,102 Z", fill = 0xFFF26B4F, stroke = null, alpha = 0.4f),
+        P("M83.4,86 A3.6,4.6 0 1 0 90.6,86 A3.6,4.6 0 1 0 83.4,86 Z", fill = 0xFF17181B, stroke = null, eye = true),
+        P("M107,88 C110,82 116,82 119,88", fill = null, stroke = 0xFF17181B, w = 3.2f),
+        P("M102,83 C101,91 100,95 99,99", fill = null, stroke = 0xFF17181B, w = 3f),
+        P("M88,108 C95,116 108,116 115,107", fill = null, stroke = 0xFF17181B, w = 3.2f),
+    )
+    val keyAlert = listOf(
+        P("M82,228 A18,3 0 1 0 118,228 A18,3 0 1 0 82,228 Z", fill = 0xFF17181B, stroke = null, alpha = 0.18f),
+        P("M170,10 L168,31", fill = null, stroke = 0xFF17181B, w = 6f),
+        P("M163.2,42 A3.8,3.8 0 1 0 170.8,42 A3.8,3.8 0 1 0 163.2,42 Z", fill = 0xFF17181B, stroke = null),
+        P("M52,96 C38,92 30,82 28,71", fill = null, stroke = 0xFF17181B, w = 3.5f),
+        P("M21,64 A7,8 0 1 0 35,64 A7,8 0 1 0 21,64 Z", fill = null, stroke = 0xFF17181B, w = 3f),
+        P("M23,57 L20,49 M28,56 L28,47 M33,57 L36,49", fill = null, stroke = 0xFF17181B, w = 3f),
+        P("M148,96 C162,92 170,82 172,71", fill = null, stroke = 0xFF17181B, w = 3.5f),
+        P("M165,64 A7,8 0 1 0 179,64 A7,8 0 1 0 165,64 Z", fill = null, stroke = 0xFF17181B, w = 3f),
+        P("M167,57 L164,49 M172,56 L172,47 M177,57 L180,49", fill = null, stroke = 0xFF17181B, w = 3f),
+        P("M92,124 L108,124 L108,204 C108,209 104,212 100,212 C96,212 92,209 92,204 Z", fill = 0xFFF2A93B, stroke = null),
+        P("M106,164 L124,164 C126,164 126,166 126,168 L126,176 L116,176 L116,184 L106,184 Z", fill = 0xFFF2A93B, stroke = null),
+        P("M106,190 L120,190 L120,200 L106,200 Z", fill = 0xFFF2A93B, stroke = null),
+        P("M100,138 L100,202", fill = null, stroke = 0xFFD88E25, w = 3f),
+        P("M100,30 C130,30 152,52 151,82 C150,112 128,133 100,132 C70,131 49,110 50,81 C51,52 72,30 100,30 Z M109,50 A9,9 0 1 0 91,50 A9,9 0 1 0 109,50 Z", fill = 0xFFF2A93B, stroke = null, evenOdd = true),
+        P("M91,50 A9,9 0 1 0 109,50 A9,9 0 1 0 91,50 Z", fill = null, stroke = 0xFF17181B, w = 2.5f),
+        P("M140,64 C150,86 146,110 126,124 C138,106 142,86 140,64 Z", fill = 0xFFD88E25, stroke = null),
+        P("M78,70 C82,65 90,65 94,69 M106,69 C110,65 118,65 122,70", fill = null, stroke = 0xFF17181B, w = 3f),
+        P("M78.5,85 A7.5,8.5 0 1 0 93.5,85 A7.5,8.5 0 1 0 78.5,85 Z", fill = 0xFFFFFFFF, stroke = 0xFF17181B, w = 2.5f),
+        P("M106.5,85 A7.5,8.5 0 1 0 121.5,85 A7.5,8.5 0 1 0 106.5,85 Z", fill = 0xFFFFFFFF, stroke = 0xFF17181B, w = 2.5f),
+        P("M83.4,87 A3.6,4.4 0 1 0 90.6,87 A3.6,4.4 0 1 0 83.4,87 Z", fill = 0xFF17181B, stroke = null, eye = true),
+        P("M109.4,87 A3.6,4.4 0 1 0 116.6,87 A3.6,4.4 0 1 0 109.4,87 Z", fill = 0xFF17181B, stroke = null, eye = true),
+        P("M101,92 L100,100", fill = null, stroke = 0xFF17181B, w = 3f),
+        P("M94,112 A6,7.5 0 1 0 106,112 A6,7.5 0 1 0 94,112 Z", fill = 0xFF17181B, stroke = null),
+    )
+}

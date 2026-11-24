@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lock In Alarm: it stops when you get up</title>
+<meta name="description" content="An open Android alarm that rings until you scan an NFC sticker. No account, no server, no internet permission.">
+<meta name="theme-color" content="#0a0b10">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lock In Alarm">
+<meta property="og:description" content="An Android alarm that rings until you scan an NFC sticker. Try to turn it off.">
+<meta property="og:image" content="https://aminechr54.github.io/lockin-alarm-android-app/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/instrument_serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/instrument_serif_italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#build">Skip to the build instructions</a>
+
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="bar">
+  <a class="mark" href="#top" aria-label="Lock In Alarm, back to the top">
+    <svg viewBox="26 20 56 68" width="22" height="27" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M43 47V38a11 11 0 0 1 22 0v9"/><circle cx="54" cy="63" r="19"/><path d="M54 53v10l7 4" stroke-width="5"/></svg>
+    <span>Lock In Alarm</span>
+  </a>
+  <time class="clock" id="clock" aria-hidden="true">22:58</time>
+  <nav>
+    <button id="sound" type="button" aria-pressed="false">Sound off</button>
+    <a href="https://github.com/AmineChr54/lockin-alarm-android-app">GitHub</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="step hero" data-step="0" data-time="22:58">
+    <div class="copy">
+      <h1><span class="ln"><i>It stops</i></span><span class="ln"><i>when <em>you get up.</em></i></span></h1>
+      <p class="lead">An Android alarm that rings until you scan an NFC sticker. Put the sticker in the bathroom.</p>
+      <p class="cta"><a class="btn" href="#off">Try to turn it <em>off</em></a><a class="link" href="#build">Build it yourself</a></p>
+    </div>
+  </section>
+
+  <section class="step" data-step="1" data-time="23:00">
+    <div class="copy">
+      <h2>Before bed, it checks <em>itself.</em></h2>
+      <p>Eight hours before it rings, a notification tells you if anything would go wrong tonight: NFC, notifications, Do Not Disturb, battery, volume, tag.</p>
+    </div>
+  </section>
+
+  <section class="step" data-step="2" data-time="04:00">
+    <div class="copy">
+      <h2>From here, it only gets <em>stricter.</em></h2>
+      <p>The commitment lock closes hours before the alarm. Turning it off, moving it later, adding a snooze: refused. You decided last night, when you could still think.</p>
+    </div>
+  </section>
+
+  <section class="step" data-step="3" data-time="06:55">
+    <div class="copy">
+      <h2>First, <em>light.</em></h2>
+      <p>For ten minutes the screen brightens without a sound. Scan your tag now and it won't ring at all.</p>
+    </div>
+  </section>
+
+  <section class="step demo" id="off" data-step="4" data-time="07:00">
+    <div class="pin">
+      <div class="copy">
+        <h2 id="demo-title">Try to turn it <em>off.</em></h2>
+        <p id="demo-text" aria-live="polite">Drag the phone onto the copper tag. Nothing else will stop it, not even scrolling away.</p>
+        <p class="controls">
+          <button class="btn" id="carry" type="button">Carry it <em>there</em></button>
+          <button class="pill" id="snooze" type="button">Snooze 5 min · 3 left</button>
+        </p>
+      </div>
+      <div id="grab" aria-hidden="true"></div>
+      <span class="tagname" id="t-good" aria-hidden="true">bathroom mirror</span>
+      <span class="tagname" id="t-bad" aria-hidden="true">some other tag</span>
+    </div>
+  </section>
+
+  <section class="step" data-step="5" data-time="07:07">
+    <div class="copy">
+      <h2>Still <em>up?</em></h2>
+      <p>Seven minutes after the scan it asks. No answer within a minute, and it rings again, this time without snoozes.</p>
+      <p class="controls"><button class="btn" id="awake" type="button" hidden>I'm <em>up</em></button></p>
+    </div>
+  </section>
+
+  <section class="rest" id="rest" data-step="6" data-time="07:30">
+    <div class="step6">
+      <h2>The small <em>print</em> of getting up</h2>
+      <ul class="list" id="list">
+        <li data-shot="tags"><h3>Any sticker</h3><p>Pair any NFC tag with a fixed ID. Nothing is written to it. Use one, a random one each morning, or all of them in order.</p></li>
+        <li data-shot="edit2"><h3>Snoozes that <em>shrink</em></h3><p>Five minutes, then three, then one. Or make it scan a tag even for a snooze.</p></li>
+        <li data-shot="edit"><h3>Every day its own time</h3><p>Several alarms, one time per weekday. Skip the next one, or ring at another time just once.</p></li>
+        <li data-shot="stats"><h3>Streaks, kept <em>private</em></h3><p>How long you took and how often you snoozed. It never leaves the phone.</p></li>
+        <li data-shot="slow"><h3>Lost the tag?</h3><p>After a minute of ringing there is a way out: type eleven sentences, about five minutes, while it keeps ringing.</p></li>
+        <li data-shot="ring2"><h3>Survives a <em>reboot</em></h3><p>It rings before the first unlock, and up to 30 minutes late if the phone was off.</p></li>
+        <li data-shot="alarms"><h3>Nothing to sign up for</h3><p>No account, no server, no internet permission at all. Send your setup to a friend as a file, without your tags.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="build" id="build" data-step="7" data-time="08:00">
+    <div class="sheet">
+      <h2>Make it <em>yours</em></h2>
+      <div class="cols">
+        <div>
+          <h3>You need</h3>
+          <ul class="plain">
+            <li>A phone with Android 13 or newer and NFC</li>
+            <li>An NFC sticker, for example an NTAG213 or NTAG215</li>
+            <li>JDK 17 or newer and the Android SDK, to build it</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Build and install</h3>
+          <div class="code"><button type="button" id="copy">Copy</button><pre><code id="cmd">git clone https://github.com/AmineChr54/lockin-alarm-android-app
+cd lockin-alarm-android-app
+./gradlew assembleRelease
+adb install -r app/build/outputs/apk/release/app-release.apk</code></pre></div>
+          <p class="small">Then open it, follow “Before it works”, pair your tag and run the silent test ring.</p>
+        </div>
+        <div>
+          <h3>What it can't stop</h3>
+          <p>You. Force-stopping the app, uninstalling it or switching the phone off still works. Android doesn't let an app prevent that, and it shouldn't.</p>
+        </div>
+      </div>
+      <p class="cta"><a class="btn" href="https://github.com/AmineChr54/lockin-alarm-android-app">Read the <em>code</em></a></p>
+    </div>
+    <footer>
+      <p class="bye" id="bye">Go get the <em>day.</em></p>
+      <p class="small">Type: <a href="fonts/instrument-serif-OFL.txt">Instrument Serif</a> and <a href="fonts/inter-OFL.txt">Inter</a> (OFL). 3D: <a href="vendor/three-LICENSE.txt">three.js</a> (MIT). No cookies, no tracking, nothing loaded from anywhere else.</p>
+    </footer>
+  </section>
+</main>
+
+<a class="still" id="still" href="#off" hidden><span class="dot" aria-hidden="true"></span><span id="still-text">Still ringing. The tag is back there.</span></a>
+<noscript><style>.ln>i{transform:none!important}.still,#sound{display:none}</style></noscript>
+<script type="module" src="main.js"></script>
+</body>
+</html>

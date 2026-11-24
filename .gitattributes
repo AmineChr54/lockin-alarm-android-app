@@ -1,0 +1,6 @@
+gradlew text eol=lf
+docs/** text=auto eol=lf
+*.webp binary
+*.jpg binary
+*.woff2 binary
+docs/vendor/** linguist-vendored
