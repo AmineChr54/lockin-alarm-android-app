@@ -63,8 +63,8 @@ h2 { font-size: clamp(48px, 6.4vw, 108px); line-height: .94; margin-bottom: .32e
 .pill:disabled { color: var(--soft); cursor: default; }
 [hidden] { display: none !important; }
 
-.demo { display: block; min-height: 240vh; min-height: 240svh; }
-.pin { overflow: clip; position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; align-items: center; }
+.demo { display: block; padding: 0; min-height: 240vh; min-height: 240svh; }
+.pin { overflow: clip; padding-inline: var(--pad); position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; align-items: center; }
 #grab { position: absolute; left: 0; top: 0; width: 0; height: 0; touch-action: none; cursor: grab; border-radius: 40px; }
 #grab.on { cursor: grabbing; }
 .tagname { position: absolute; left: 0; top: 0; font: italic 400 21px/1 var(--serif); color: var(--fg); opacity: 0; transition: opacity .5s; white-space: nowrap; pointer-events: none; }
